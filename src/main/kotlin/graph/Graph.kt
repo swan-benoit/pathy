@@ -60,9 +60,9 @@ class Graph : IGraph {
         return Matrix(adjencyMatrix)
     }
 
-    override fun nodeList(): Map<String, String> {
+    override fun nodeList(): Map<String, Int> {
         return this.vertexes
-            .map { it.key.toString() to it.value.toString() }
+            .map { it.key.toString() to it.key }
             .toMap()
     }
 

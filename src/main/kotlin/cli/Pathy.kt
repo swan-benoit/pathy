@@ -1,6 +1,8 @@
 package cli
 
 import com.github.ajalt.clikt.core.CliktCommand
+import courses.Diksktra
+import graph.GraphSingleton
 
 class Pathy: CliktCommand() {
 

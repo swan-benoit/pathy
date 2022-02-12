@@ -24,7 +24,7 @@ open class GraphBaseDecorator(private val graph: IGraph) : IGraph {
         return graph.getAdjencyMatrix();
     }
 
-    override fun nodeList(): Map<String, String> {
+    override fun nodeList(): Map<String, Int> {
         return graph.nodeList()
     }
 

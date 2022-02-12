@@ -11,5 +11,5 @@ interface IGraph {
     ): MutableList<Vertex>
 
     fun getAdjencyMatrix(): Matrix
-    fun nodeList(): Map<String, String>
+    fun nodeList(): Map<String, Int>
 }
