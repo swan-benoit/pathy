@@ -1,4 +1,4 @@
-package projet
+package graph
 
 import java.util.*
 
@@ -33,7 +33,7 @@ class Graph{
             return single as Graph;
         }
 
-        fun fromAdjencyMatrix(matrix: Matrix): Graph{
+        fun fromAdjencyMatrix(matrix: Matrix): Graph {
             val graph = Graph()
             matrix.value.forEachIndexed {index, booleans -> graph.vertexes[index] = mutableSetOf() }
             for ((from,submatrix) in matrix.value.withIndex()) {
@@ -106,6 +106,12 @@ class Graph{
                 row, destinations -> destinations.forEach { vertex ->  adjencyMatrix[row][vertex.index] = 1}
         }
         return Matrix(adjencyMatrix)
+    }
+
+    fun nodeList(): Map<String, String> {
+        return this.vertexes
+            .map { it.key.toString() to it.value.toString() }
+            .toMap()
     }
 
 }

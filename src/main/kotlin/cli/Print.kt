@@ -1,7 +1,8 @@
+package cli
+
 import com.github.ajalt.clikt.core.CliktCommand
-import projet.Graph
-import projet.GraphDisplayer
-import projet.Matrix
+import graph.Graph
+import displayer.GraphDisplayer
 
 class Print: CliktCommand(help = "print the graph") {
     override fun run() {

@@ -1,9 +1,9 @@
-package projet
+package displayer
 
 import org.graphstream.graph.Graph
 import org.graphstream.graph.Node
 import org.graphstream.graph.implementations.SingleGraph
-import projet.Graph as GraphDatastructure
+import graph.Graph as GraphDatastructure
 
 class GraphDisplayer(private val graphDataStructure: GraphDatastructure) : IGraphDisplayer {
 
