@@ -5,7 +5,7 @@ import com.github.ajalt.clikt.parameters.options.help
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.required
 import com.github.ajalt.clikt.parameters.types.choice
-import courses.Diksktra
+import courses.Dijkstra
 import graph.GraphSingleton
 
 class Path: CliktCommand(help = "Calculate path") {
@@ -20,7 +20,7 @@ class Path: CliktCommand(help = "Calculate path") {
     override fun run() {
 
         val graph = GraphSingleton.getInstance()
-        print(Diksktra(graph)
+        print(Dijkstra(graph)
             .course(this.from, this.to))
     }
 }

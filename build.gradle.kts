@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.junit.jupiter:junit-jupiter:5.7.0")
     testImplementation(kotlin("test"))
     implementation("com.github.ajalt.clikt:clikt:3.4.0")
     implementation("org.graphstream:gs-core:2.0")
