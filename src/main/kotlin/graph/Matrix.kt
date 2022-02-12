@@ -16,4 +16,8 @@ data class Matrix(val value: List<List<Int>>) {
             }
         )
 
+    fun transitiveMatrixFromAdjacenyMatrix(): Matrix {
+        return add(transpose())
+    }
+
 }

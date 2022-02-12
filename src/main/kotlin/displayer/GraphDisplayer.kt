@@ -1,11 +1,13 @@
 package displayer
 
+import graph.GraphBaseDecorator
+import graph.IGraph
 import org.graphstream.graph.Graph
 import org.graphstream.graph.Node
 import org.graphstream.graph.implementations.SingleGraph
 import graph.Graph as GraphDatastructure
 
-class GraphDisplayer(private val graphDataStructure: GraphDatastructure) : IGraphDisplayer {
+class GraphDisplayer(graph: IGraph) : GraphBaseDecorator(graph),IGraphDisplayer {
 
     private var graphDisplayer: Graph
 
@@ -27,11 +29,11 @@ class GraphDisplayer(private val graphDataStructure: GraphDatastructure) : IGrap
         return graph
     }
 
-    private fun addEdges(graph: org.graphstream.graph.Graph) {
-        this.graphDataStructure.vertexes.forEach { row, destination ->
+    private fun addEdges(graphStream: org.graphstream.graph.Graph) {
+        super.vertexes.forEach { row, destination ->
             destination.forEach {
                 val edgeId = row.toString() + ":" + it.index.toString()
-                graph.addEdge(
+                graphStream.addEdge(
                     edgeId,
                     row.toString(),
                     it.index.toString(),
@@ -42,7 +44,7 @@ class GraphDisplayer(private val graphDataStructure: GraphDatastructure) : IGrap
     }
 
     private fun initNodes(graph: org.graphstream.graph.Graph) {
-        this.graphDataStructure.vertexes.forEach { row, destination ->
+        super.vertexes.forEach { row, destination ->
             run {
                 val node = graph.addNode(row.toString())
                 addNodeLabel(node)

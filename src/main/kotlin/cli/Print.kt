@@ -1,12 +1,12 @@
 package cli
 
 import com.github.ajalt.clikt.core.CliktCommand
-import graph.Graph
 import displayer.GraphDisplayer
+import graph.GraphSingleton
 
 class Print: CliktCommand(help = "print the graph") {
     override fun run() {
-        val graph = Graph.getInstance()
+        val graph = GraphSingleton.getInstance()
         val graphDisplayer = GraphDisplayer(graph)
         graphDisplayer.display()
     }
