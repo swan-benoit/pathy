@@ -21,9 +21,9 @@ class Path: CliktCommand(help = "Calculate path") {
     override fun run() {
 
         val graph = GraphSingleton.getInstance()
-        print(Dijkstra(graph)
+        println(Dijkstra(graph)
             .course(this.from, this.to))
-        print(BreadthFirst(graph)
+        println(BreadthFirst(graph)
             .course(this.from, this.to))
     }
 }
