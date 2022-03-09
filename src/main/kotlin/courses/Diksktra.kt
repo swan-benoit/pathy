@@ -12,7 +12,7 @@ data class DijkstraNode(val destination: MutableSet<Vertex>,
 )
 
 class Dijkstra(graph: IGraph) : GraphBaseDecorator(graph), ICourse {
-    var dijkstraCourse = super.vertexes
+    var dijkstraCourse = vertexes
         .map { it.key to DijkstraNode(it.value) }
         .toMap()
         .toMutableMap()

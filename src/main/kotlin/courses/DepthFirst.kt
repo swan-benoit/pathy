@@ -3,9 +3,9 @@ package courses
 import graph.GraphBaseDecorator
 import graph.IGraph
 
-class BreadthFirst(graph: IGraph) : GraphBaseDecorator(graph), ICourse {
+class DepthFirst(graph: IGraph) : GraphBaseDecorator(graph), ICourse {
     override fun course(from: Int, to: Int): String {
-        val search = breadthFirstSearch(from)
+        val search = depthFirstSearch(from, mutableListOf(), vertexes.map { false }.toMutableList())
             .map { it.index }
 
         return search
