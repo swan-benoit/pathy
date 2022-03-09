@@ -5,6 +5,7 @@ import com.github.ajalt.clikt.parameters.options.help
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.required
 import com.github.ajalt.clikt.parameters.types.choice
+import courses.BreadthFirst
 import courses.Dijkstra
 import graph.GraphSingleton
 
@@ -21,6 +22,8 @@ class Path: CliktCommand(help = "Calculate path") {
 
         val graph = GraphSingleton.getInstance()
         print(Dijkstra(graph)
+            .course(this.from, this.to))
+        print(BreadthFirst(graph)
             .course(this.from, this.to))
     }
 }
