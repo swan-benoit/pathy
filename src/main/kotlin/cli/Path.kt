@@ -8,6 +8,7 @@ import com.github.ajalt.clikt.parameters.types.choice
 import courses.BreadthFirst
 import courses.Dijkstra
 import graph.GraphSingleton
+import kotlin.system.measureTimeMillis
 
 class Path: CliktCommand(help = "Calculate path") {
     val from by option()
@@ -22,11 +23,20 @@ class Path: CliktCommand(help = "Calculate path") {
 
         val graph = GraphSingleton.getInstance()
 
-        println("Dijkstra : "+ Dijkstra(graph)
-            .course(this.from, this.to))
+        val dijkstraBenchmark = measureTimeMillis {
+            val dijkstraCourse = Dijkstra(graph)
+                .course(this.from, this.to)
+            print("Dijkstra : " + dijkstraCourse)
+        }
+        println(" temps d'execution : " + dijkstraBenchmark + " ms")
 
-        println("Parcours en largeur modifié : " + BreadthFirst(graph)
-            .course(this.from, this.to))
+        val breadthFirstBenchmark = measureTimeMillis {
+            val breadthFirstCourse = BreadthFirst(graph)
+                .course(this.from, this.to)
+
+            print("Parcours en largeur modifié : " + breadthFirstCourse)
+        }
+        println(" temps d'execution : " + breadthFirstBenchmark + " ms")
 
     }
 }
